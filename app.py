@@ -348,6 +348,14 @@ def health():
         "cors_origins": allow_origins,
     }
 
+@app.get("/")
+def root():
+    return {
+        "service": "ai-music-tool-api",
+        "status": "ok",
+        "message": "API is running. Visit /docs for OpenAPI docs."
+    }
+
 
 @app.post("/analyze_melody")
 def analyze_melody(payload: AnalyzeMelodyRequest):
